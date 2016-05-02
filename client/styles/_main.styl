@@ -1,0 +1,112 @@
+$color-1= #7D5CFF
+$color-2= #f5f5f5
+$color-3= #dcecee
+
+html
+  height 100%
+body
+  height 100%
+  background url(/images/back.jpg) no-repeat
+  background-size cover
+  background-attachment fixed
+
+h1, h2, h3
+	font-weight normal
+
+html
+  overflow-y: scroll;	
+
+body
+	font-family: $font-light
+
+.row
+	margin-left -10px
+	margin-right -10px
+
+.content
+	margin-top 50px
+
+#main-content		
+	.product
+		margin-bottom 50px
+		
+		&-wrapper
+			cfix()
+			
+			padding: 0px;
+			position relative
+			padding-bottom: 20px;
+			border-bottom: 5px solid rgba(0,0,0,.5);
+			
+			.image
+				padding 20px
+				text-align center
+				background white
+				img
+					width auto
+					max-height 150px
+				
+		&-info
+			cfix()
+			padding-top 15px
+			padding-left 15px
+			
+			h2
+				margin-bottom 20px
+				font-weight bold
+				text-transform uppercase
+			
+		&-cost
+			float left
+			.total
+				font-size 24px
+			
+			.currency
+				font-size 14px
+
+		&-more
+			bordRad(20px)
+			trans()
+			
+			position relative
+			float right
+			font-family $font-light
+			font-size 14px
+			padding 10px 20px	
+			background $color-1
+			color white
+			text-transform uppercase
+			letter-spacing 1px
+			
+			&:before
+				trans()
+				bordRad(20px)
+				boxShad(0px 0px 1px 1px $color-1)
+				transScale(1.2)
+				
+				content ''
+				position absolute
+				width 100%
+				height 100%
+				left 0; top 0
+				opacity 0
+			&:hover
+				background 0 0
+				color $color-1
+				font-weight bold
+				
+				&:before
+					transScale(1)
+				
+					opacity 1
+				
+			
+#sidebar
+	.search-filter
+		font-family: $font-light
+		font-size 16px
+		padding 5px 10px
+		
+		+placehold()
+			font-size 16px
+			color black
