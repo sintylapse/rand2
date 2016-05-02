@@ -22,7 +22,6 @@ const App = React.createClass ({
   render() {
     return (
     		<div className="container">
-    			<h1>Hello !</h1>
           <div className="content">
             <aside id="sidebar" className=" col-3">
               <Filters filterToParent={this.filter} />

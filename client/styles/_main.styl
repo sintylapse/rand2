@@ -44,12 +44,13 @@ body
 				background white
 				img
 					width auto
-					max-height 75px
+					max-height 75px 
 				
 		&-info
 			cfix()
-			padding-top 15px
+			padding-top 5px
 			padding-left 15px
+			padding-right 5px
 			
 			h2
 				margin-bottom 20px
@@ -100,14 +101,52 @@ body
 					transScale(1)
 				
 					opacity 1
+		
+		.stock
+			padding: 10px 15px;
+			border: 1px solid;
+			display: inline-block;
+			margin-bottom: 20px;
+			margin-top: 10px;
+			i
+				margin-right 5px
+
+			&.true
+				color #00B300
+			&.false
+				color #FF5C5C
 				
+		.text
+			margin-bottom: 10px;
+			padding-top: 10px;
+			border-top: 1px solid gray;
+
+		/*handleMore*/
+		&.current
+			background white
+			
+			.product-info
+				width 100%
+				padding-right 15px
+				
+			.product-wrapper 
+				.image 
+					trans()
+					width 100%
+					img
+						trans()
+						max-height 250px
 			
 #sidebar
+	padding-right 25px
+	
 	.search-filter
 		font-family: $font-light
 		font-size 16px
 		padding 5px 10px
+		width 100%
 		
 		+placehold()
 			font-size 16px
 			color black
+			
