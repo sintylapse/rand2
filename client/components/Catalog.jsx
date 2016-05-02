@@ -39,9 +39,9 @@ const Catalog = React.createClass({
 						filteredData.map(item =>
 							<div key={item.id} className="product">
 								<div className="product-wrapper">
-									<div className="image col-6"><img src={"images/stock/" + item.id + ".jpg"} /></div>
+									<div className="image col-5"><img src={"images/stock/" + item.id + ".jpg"} /></div>
 									
-									<div className="product-info col-6">
+									<div className="product-info col-7">
 										<h2>{item.title}</h2>
 										
 										<div className="product-cost">
