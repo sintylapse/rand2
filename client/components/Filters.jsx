@@ -1,9 +1,6 @@
 import React from "react";
 
-const ALLCATEGORIES = ["notebooks", "phones"];
 let choosenCategories = [];
-
-const ALLBRANDS = ["lenovo", "asus", "apple", "samsung", "xiaomi"];
 let choosenBrands = [];
 
 const Filters = React.createClass({
@@ -19,12 +16,6 @@ const Filters = React.createClass({
      		xiaomiChecked: false,
      		samsungChecked: false
 	   };
-	},
-
-	componentDidMount() {
-    document.getElementById('notebooksChecked').click();
-    document.getElementById('asusChecked').click();
-    console.log('did mount');
 	},
 
 	filterChild(e){
