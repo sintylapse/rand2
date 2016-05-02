@@ -1,7 +1,10 @@
 import React from "react";
 
-
+const ALLCATEGORIES = ["notebooks", "phones"];
 let choosenCategories = [];
+
+const ALLBRANDS = ["lenovo", "asus", "apple", "samsung", "xiaomi"];
+let choosenBrands = [];
 
 const Filters = React.createClass({
 
@@ -9,8 +12,19 @@ const Filters = React.createClass({
 	   return {
 	     filter: '',
      		notebooksChecked: false,
-     		phonesChecked: false
+     		phonesChecked: false,
+     		lenovoChecked: false,
+     		asusChecked: false,
+     		appleChecked: false,
+     		xiaomiChecked: false,
+     		samsungChecked: false
 	   };
+	},
+
+	componentDidMount() {
+    document.getElementById('notebooksChecked').click();
+    document.getElementById('asusChecked').click();
+    console.log('did mount');
 	},
 
 	filterChild(e){
@@ -21,7 +35,7 @@ const Filters = React.createClass({
     this.props.filterToParent(inputValue)
   },
 
-  checkCategory(name, inputValue, e){
+  checkCategory(name, inputValue, type, e){
   	let val = e.target.value;
   	val === "false" ? val = false: val === "true" ? val = true: null;
   	
@@ -29,13 +43,20 @@ const Filters = React.createClass({
     change[name] = !val;
     this.setState(change)
 
-    val === false 
-    ? choosenCategories.push(inputValue) 
-    : choosenCategories = choosenCategories.filter(item => item !== inputValue) 
+    if (type === "category"){
+  	 	val === false 
+	    ? choosenCategories.push(inputValue) 
+	    : choosenCategories = choosenCategories.filter(item => item !== inputValue) 
 
-    this.props.filterCategoryToParent(choosenCategories);
+	    this.props.filterCategoryToParent(choosenCategories);
+    } else if (type === "brand"){
 
-    console.log("it was here");
+    	val === false 
+	    ? choosenBrands.push(inputValue) 
+	    : choosenBrands = choosenBrands.filter(item => item !== inputValue) 
+
+	    this.props.filterBrandToParent(choosenBrands);
+    }
   },
 
 	render(){
@@ -46,20 +67,61 @@ const Filters = React.createClass({
 					value={this.state.filter} 
 					onChange={this.filterChild}
 				/>
-				<fieldset>
-					<input type="checkbox" value={this.state.notebooksChecked} id="notebooksChecked" 
-						checked={this.state.notebooksChecked} 
-						onChange={this.checkCategory.bind(this, "notebooksChecked", "notebooks")} />
+				<div className="category-filters">
+					<fieldset>
+						<input type="checkbox" value={this.state.notebooksChecked} id="notebooksChecked" 
+							checked={this.state.notebooksChecked} 
+							onChange={this.checkCategory.bind(this, "notebooksChecked", "notebooks", "category")} />
 
-					<label htmlFor="notebooksChecked">Ноутбуки</label>
-				</fieldset>
-				<fieldset>
-					<input type="checkbox" value={this.state.phonesChecked} id="phonesChecked" 
-						checked={this.state.phonesChecked}
-						onChange={this.checkCategory.bind(this, "phonesChecked", "phones")} />
+						<label htmlFor="notebooksChecked">Ноутбуки</label>
+					</fieldset>
+					<fieldset>
+						<input type="checkbox" value={this.state.phonesChecked} id="phonesChecked" 
+							checked={this.state.phonesChecked}
+							onChange={this.checkCategory.bind(this, "phonesChecked", "phones", "category")} />
 
-					<label htmlFor="phonesChecked">Смартфоны</label>
-				</fieldset>
+						<label htmlFor="phonesChecked">Смартфоны</label>
+					</fieldset>
+				</div>
+
+				<div className="brand-filters">
+					<fieldset>
+						<input type="checkbox" value={this.state.lenovoChecked} id="lenovoChecked" 
+							checked={this.state.lenovoChecked}
+							onChange={this.checkCategory.bind(this, "lenovoChecked", "lenovo", "brand")} />
+
+						<label htmlFor="lenovoChecked">Lenovo</label>
+					</fieldset>
+					<fieldset>
+						<input type="checkbox" value={this.state.asusChecked} id="asusChecked" 
+							checked={this.state.asusChecked}
+							onChange={this.checkCategory.bind(this, "asusChecked", "asus", "brand")} />
+
+						<label htmlFor="asusChecked">Asus</label>
+					</fieldset>
+					<fieldset>
+						<input type="checkbox" value={this.state.appleChecked} id="appleChecked" 
+							checked={this.state.appleChecked}
+							onChange={this.checkCategory.bind(this, "appleChecked", "apple", "brand")} />
+
+						<label htmlFor="appleChecked">Apple</label>
+					</fieldset>
+					<fieldset>
+						<input type="checkbox" value={this.state.samsungChecked} id="samsungChecked" 
+							checked={this.state.samsungChecked}
+							onChange={this.checkCategory.bind(this, "samsungChecked", "samsung", "brand")} />
+
+						<label htmlFor="samsungChecked">Samsung</label>
+					</fieldset>
+					<fieldset>
+						<input type="checkbox" value={this.state.xiaomiChecked} id="xiaomiChecked" 
+							checked={this.state.xiaomiChecked}
+							onChange={this.checkCategory.bind(this, "xiaomiChecked", "xiaomi", "brand")} />
+
+						<label htmlFor="xiaomiChecked">Xiaomi</label>
+					</fieldset>
+
+				</div>
 			</div>
 		)
 	}

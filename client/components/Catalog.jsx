@@ -58,22 +58,27 @@ const Catalog = React.createClass({
 			return item.title.toLowerCase().indexOf(this.props.filterToChild) !== -1;
 		});
 
-
-		let filterValues = this.props.filterCategoryToChild;
-
+		let filterCategory = this.props.filterCategoryToChild;
 		let filtredCategoriesOutpup = [];
-
-		for (let i = 0; i < filterValues.length; i++){
+		for (let i = 0; i < filterCategory.length; i++){
 			filteredData.map(item =>
-				item.category === filterValues[i] ? filtredCategoriesOutpup.push(item) : null
+				item.category === filterCategory[i] ? filtredCategoriesOutpup.push(item) : null
+			)
+		};
+		
+		let filterBrand = this.props.filterBrandToChild;
+		let filtredBrandOutpup = [];
+		for (let i = 0; i < filterBrand.length; i++){
+			filtredCategoriesOutpup.map(item =>
+				item.brand === filterBrand[i] ? filtredBrandOutpup.push(item) : null
 			)
 		};
 
-		if (filtredCategoriesOutpup.length !== 0){
+		if (filteredData.length !== 0){
 			return(
 				<div>
 					{
-						filtredCategoriesOutpup.map(item =>
+						filtredBrandOutpup.map(item =>
 							<div key={item.id} className={this.state.current === item.id ? "current product" : "product"}>
 								<div className="product-wrapper">
 									<div className="image col-5"><img src={"images/stock/" + item.id + ".jpg"} /></div>

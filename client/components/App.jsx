@@ -9,7 +9,8 @@ const App = React.createClass ({
   getInitialState() {
       return {
           filterSearch: '',
-          filterCategory: []  
+          filterCategory: [],
+          filterBrand: []
       };
   },
 
@@ -25,16 +26,26 @@ const App = React.createClass ({
     })
   },
 
+  filterBrand(inputValue){
+    this.setState({
+      filterBrand: inputValue
+    })
+  },
 
   render() {
+
     return (
     		<div className="container">
           <div className="content">
             <aside id="sidebar" className=" col-3">
-              <Filters filterToParent={this.filter} filterCategoryToParent={this.filterCategory} />
+              <Filters filterToParent={this.filter} 
+                filterCategoryToParent={this.filterCategory} 
+                filterBrandToParent={this.filterBrand} />
             </aside>
             <div id="main-content" className="col-7">
-              <Catalog filterToChild ={this.state.filterSearch} filterCategoryToChild={this.state.filterCategory} />
+              <Catalog filterToChild ={this.state.filterSearch} 
+                filterCategoryToChild={this.state.filterCategory} 
+                filterBrandToChild={this.state.filterBrand} />
             </div>
           </div>
     		</div>
