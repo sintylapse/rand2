@@ -8,7 +8,8 @@ const App = React.createClass ({
 
   getInitialState() {
       return {
-          filterSearch: ''  
+          filterSearch: '',
+          filterCategory: []  
       };
   },
 
@@ -18,16 +19,22 @@ const App = React.createClass ({
     })
   },
 
+  filterCategory(inputValue){
+    this.setState({
+      filterCategory: inputValue
+    })
+  },
+
 
   render() {
     return (
     		<div className="container">
           <div className="content">
             <aside id="sidebar" className=" col-3">
-              <Filters filterToParent={this.filter} />
+              <Filters filterToParent={this.filter} filterCategoryToParent={this.filterCategory} />
             </aside>
             <div id="main-content" className="col-7">
-              <Catalog filterToChild ={this.state.filterSearch} />
+              <Catalog filterToChild ={this.state.filterSearch} filterCategoryToChild={this.state.filterCategory} />
             </div>
           </div>
     		</div>
