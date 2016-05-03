@@ -90,7 +90,7 @@ const Catalog = React.createClass({
 				<div>
 					{
 						filteredData.map(item =>
-							<div key={item.id} className={this.state.current === item.id ? "current product" : "product"}>
+							<div key={item.id} className={this.state.current === item.id ? "current product fadeInUp" : "product fadeInUp"}>
 								<div className="product-wrapper">
 									<div className="image col-5"><img src={"images/stock/" + item.id + ".jpg"} /></div>
 									<div className="product-info col-7">

@@ -36,13 +36,14 @@ const App = React.createClass ({
 
     return (
     		<div className="container">
+          <h1>Omertex React Test</h1>
           <div className="content">
-            <aside id="sidebar" className=" col-3">
+            <aside id="sidebar" className=" col-4">
               <Filters filterToParent={this.filter} 
                 filterCategoryToParent={this.filterCategory} 
                 filterBrandToParent={this.filterBrand} />
             </aside>
-            <div id="main-content" className="col-7">
+            <div id="main-content" className="col-8">
               <Catalog filterToChild ={this.state.filterSearch} 
                 filterCategoryToChild={this.state.filterCategory} 
                 filterBrandToChild={this.state.filterBrand} />

@@ -53,12 +53,13 @@ const Filters = React.createClass({
 	render(){
 
 		return(
-			<div>
+			<div className="filters">
 				<input type="text" className="search-filter" placeholder="Поиск..." 
 					value={this.state.filter} 
 					onChange={this.filterChild}
 				/>
-				<div className="category-filters">
+				<div className="category-filters filter-group">
+					<div className="filters-title">Категории</div>
 					<fieldset>
 						<input type="checkbox" value={this.state.notebooksChecked} id="notebooksChecked" 
 							checked={this.state.notebooksChecked} 
@@ -75,7 +76,8 @@ const Filters = React.createClass({
 					</fieldset>
 				</div>
 
-				<div className="brand-filters">
+				<div className="brand-filters filter-group">
+					<div className="filters-title">Бренды</div>
 					<fieldset>
 						<input type="checkbox" value={this.state.lenovoChecked} id="lenovoChecked" 
 							checked={this.state.lenovoChecked}
